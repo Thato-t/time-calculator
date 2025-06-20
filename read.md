@@ -1,31 +1,65 @@
-Write a function named add_time that takes in two required parameters and one optional parameter:
+# Time Calculator
 
-a start time in the 12-hour clock format (ending in AM or PM)
-a duration time that indicates the number of hours and minutes
-(optional) a starting day of the week, case insensitive
-The function should add the duration time to the start time and return the result.
+A Python function that adds a duration to a start time and handles various time-related calculations, including support for AM/PM format and days of the week.
 
-If the result will be the next day, it should show (next day) after the time. If the result will be more than one day later, it should show (n days later) after the time, where "n" is the number of days later.
+## Getting Started
 
-If the function is given the optional starting day of the week parameter, then the output should display the day of the week of the result. The day of the week in the output should appear after the time and before the number of days later.
+To use or edit this project, you can clone the repository using the following command:
 
-Below are some examples of different cases the function should handle. Pay close attention to the spacing and punctuation of the results.
+```bash
+git clone https://github.com/Thato-t/Time_Calculator.git
+cd Time_Calculator
+```
 
+Replace `your-username` with your actual GitHub username if you fork or host the project yourself.
+
+## Description
+
+The Time Calculator is a Python function that performs time arithmetic. It takes a start time in 12-hour clock format and adds a duration to it, handling various edge cases and time format conversions. The function can also track the day of the week and calculate how many days have passed.
+
+## Features
+
+- Add hours and minutes to a given time
+- Support for 12-hour clock format (AM/PM)
+- Optional day of the week tracking
+- Automatic handling of next day and multiple days later
+- Proper time formatting with leading zeros for minutes
+- Case-insensitive day of the week input
+
+## Usage
+
+```python
 add_time('3:00 PM', '3:10')
 # Returns: 6:10 PM
 
 add_time('11:30 AM', '2:32', 'Monday')
 # Returns: 2:02 PM, Monday
 
-add_time('11:43 AM', '00:20')
-# Returns: 12:03 PM
-
-add_time('10:10 PM', '3:30')
-# Returns: 1:40 AM (next day)
-
 add_time('11:43 PM', '24:20', 'tueSday')
 # Returns: 12:03 AM, Thursday (2 days later)
 
 add_time('6:30 PM', '205:12')
 # Returns: 7:42 AM (9 days later)
-Do not import any Python libraries. Assume that the start times are valid times. The minutes in the duration time will be a whole number less than 60, but the hour can be any whole number.
+```
+
+## Parameters
+
+- `start_time` (required): A string representing the start time in 12-hour clock format (e.g., "3:00 PM")
+- `duration` (required): A string representing the duration to add in hours:minutes format (e.g., "3:10")
+- `start_day` (optional): A string representing the starting day of the week (case insensitive)
+
+## Return Format
+
+The function returns a string in the following formats:
+- Basic: "5:30 PM"
+- With day: "5:30 PM, Monday"
+- Next day: "5:30 PM (next day)"
+- Multiple days: "5:30 PM (n days later)"
+- Combined: "5:30 PM, Monday (2 days later)"
+
+## Limitations
+
+- Does not import any Python libraries
+- Assumes all input start times are valid times
+- Duration minutes must be a whole number less than 60
+- Duration hours can be any whole number
